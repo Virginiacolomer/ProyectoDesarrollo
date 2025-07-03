@@ -10,6 +10,7 @@
         placeholder="Email"
         [class.input-error]="mostrarError && (!email || !email.trim())"
         class="form-control custom-input mb-3"
+        [disabled]="cargando"
       />
 
       <input
@@ -19,12 +20,24 @@
         placeholder="Contraseña"
         [class.input-error]="mostrarError && (!password || !password.trim())"
         class="form-control custom-input mb-3"
+        [disabled]="cargando"
       />
 
-      <button type="submit" class="btn btn-login w-100">Iniciar Sesión</button>
+      <button type="submit" class="btn btn-login w-100" [disabled]="cargando">Iniciar Sesión</button>
 
-      <div *ngIf="mostrarError" class="text-danger mt-2 text-center">
+      <!-- Mensaje de error si faltan campos -->
+      <div *ngIf="mostrarError && (!email.trim() || !password.trim())" class="text-danger mt-2 text-center">
         Por favor, completá todos los campos.
+      </div>
+
+      <!-- Mensaje de error si login inválido -->
+      <div *ngIf="mostrarError" class="text-danger mt-2 text-center">
+  {{ mensajeError }}
+</div>
+
+      <!-- Indicador de carga -->
+      <div *ngIf="cargando" class="text-center mt-2">
+        Validando usuario...
       </div>
     </form>
 

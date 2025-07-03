@@ -1,5 +1,13 @@
+// src/app/config/env.ts
+
 export const config = {
-  urls: {
-    getFood: 'https://run.mocky.io/v3/0a5a1d85-ee02-455e-b53e-e3887acfbfaf',
+  baseUrl: 'http://localhost:3000',
+  endpoints: {
+    auth: {
+      login: 'auth/login',
+      register: 'auth/register',
+    },
+    pedidos: 'pedidos',
+    pedidoById: (id: number) => `pedidos/${id}`, // útil para detalle
   },
-};
+}
