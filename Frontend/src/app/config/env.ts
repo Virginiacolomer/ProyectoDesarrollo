@@ -8,6 +8,6 @@ export const config = {
       register: 'auth/register',
     },
     pedidos: 'pedidos',
-    pedidoById: (id: number) => `pedidos/${id}`, // útil para detalle
+    pedidoById: (id: number) => `pedidos/${id}`,
   },
 }

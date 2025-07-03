@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import axios, { AxiosError } from 'axios';
 import { config } from '../config/env';
+import axiosService from '../../api/axiosClient';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class ApiService {
 
   async get<T>(endpoint: string): Promise<T> {
     try {
-      const response = await axios.get(`${this.baseUrl}/${endpoint}`);
+    const response = await axiosService.get(`${this.baseUrl}/${endpoint}`);
       return response.data;
     } catch (error) {
       this.handleError(error);
@@ -23,7 +24,7 @@ export class ApiService {
 
   async post<T>(endpoint: string, data: any): Promise<T> {
     try {
-      const response = await axios.post(`${this.baseUrl}/${endpoint}`, data);
+    const response = await axiosService.post(`${this.baseUrl}/${endpoint}`, data);
       return response.data;
     } catch (error) {
       this.handleError(error);
