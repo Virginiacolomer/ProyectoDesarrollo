@@ -1,0 +1,31 @@
+<div class="nuevo-pedido-container">
+  <div class="header">
+    <a [routerLink]="['/home']" class="back-btn">
+      <img src="assets/img/back-arrow.png" alt="Volver" />
+    </a>
+    <h1 class="title">Nuevo Pedido</h1>
+    <button class="menu-btn">⋮</button>
+  </div>
+
+  <div class="product-list-vertical">
+    <div class="product-card" *ngFor="let producto of productos">
+      <div class="image-container">
+        <img [src]="producto.imagen" alt="{{ producto.nombre }}" />
+        <div class="overlay">
+          <h2>{{ producto.nombre }}</h2>
+          <p>{{ producto.descripcion }}</p>
+          <span class="precio">${{ producto.precio | number: '1.0-0' }}</span>
+        </div>
+      </div>
+      <button class="btn-agregar">Agregar</button>
+    </div>
+  </div>
+
+  <div class="paginacion">
+    <span class="pagina">1</span>
+    <span class="pagina">2</span>
+    <span class="pagina">3</span>
+  </div>
+
+  <div class="floating-user">👤</div>
+</div>

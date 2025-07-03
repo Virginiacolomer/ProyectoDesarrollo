@@ -1,0 +1,176 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.body{
+  background-color: black;
+}
+
+.container {
+    background: #000000;
+    border-radius: 25px;
+    padding: 0;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: relative;
+}
+
+.header {
+    background: #444;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 10px solid #000000;
+}
+
+.back-btn:hover {
+    background-color: #444;
+}
+
+.title {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.food-image-container {
+    position: relative;
+    padding: 30px;
+    background: #444;
+}
+
+.food-image {
+    width: 100%;
+    height: 280px;
+    border-radius: 20px;
+    border: 3px solid #444;
+    position: relative;
+    overflow: hidden;
+}
+
+.price {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 28px;
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+}
+
+.details {
+    padding: 30px;
+    background: #444;
+}
+
+.detail-card {
+    background: #000000;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #000000;
+}
+
+.detail-card:last-child {
+    margin-bottom: 0;
+}
+
+.product-name {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.product-label {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.address {
+    color: white;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.address-label {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.status {
+    color: #4CAF50;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-label {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    background: #4CAF50;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.home-btn {
+  display: inline-block;
+  background-position: 50% 50%;
+  height: 23px;
+  width: 23px;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.home-btn:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    transform: translateY(-2px);
+}
+
+.home-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        margin: 10px;
+        border-radius: 20px;
+        background-color: #000000;
+    }
+    
+    .food-image {
+        height: 240px;
+    }
+    
+    .price {
+        font-size: 24px;
+    }
+}

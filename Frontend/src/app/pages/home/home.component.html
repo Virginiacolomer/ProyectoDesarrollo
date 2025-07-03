@@ -1,0 +1,34 @@
+<div class="home-container">
+  <div class="header">
+    <span class="back-icon">←</span>
+    <h2>Mis Pedidos</h2>
+    <span class="menu-icon">⋮</span>
+  </div>
+
+  <div class="home-content">
+    <div class="pedido-card" *ngFor="let pedido of pedidos">
+      <img [src]="pedido.imagen" class="pedido-img" alt="comida" />
+      <div class="pedido-info">
+        <h4>Pedido Nº{{ pedido.id }}</h4>
+        <p>{{ pedido.nombre }}</p>
+        <strong>${{ pedido.precio | number:'1.0-0' }},00</strong>
+        <div class="botones">
+          <a [routerLink]="['/pedido', pedido.id]">
+            <button class="btn-ver">VER</button>
+          </a>
+          <button class="btn-eliminar">Eliminar</button>
+        </div> 
+      </div>
+    </div>
+    
+<button [routerLink]="['/pedido-nuevo']" class="btn-agregar">Agregar Pedido</button>
+
+
+  <div class="paginacion">
+    <span class="pagina">1</span>
+    <span class="pagina">2</span>
+    <span class="pagina">3</span>
+  </div>
+
+  <div class="perfil-icono">👤</div>
+</div>

@@ -1,0 +1,51 @@
+<div class="register-container">
+    <div class="register-content">
+        <img src="assets/img/hamburguesa.png" alt="Fondo Hamburguesa" class="burger-img" />
+
+        <form class="form-box" (ngSubmit)="registrar()">
+        <input
+            type="text"
+            [(ngModel)]="nombre"
+            name="nombre"
+            placeholder="Nombre"
+            [class.input-error]="mostrarError && (!nombre || !nombre.trim())"
+            class="form-control custom-input mb-3"
+        />
+
+        <input
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+            placeholder="Email"
+            [class.input-error]="mostrarError && (!email || !email.trim())"
+            class="form-control custom-input mb-3"
+        />
+
+        <input
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            placeholder="Contraseña"
+            [class.input-error]="mostrarError && (!password || !password.trim())"
+            class="form-control custom-input mb-3"
+        />
+
+        <input
+            type="password"
+            [(ngModel)]="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirmar Contraseña"
+            [class.input-error]="mostrarError && (!confirmPassword || !confirmPassword.trim())"
+            class="form-control custom-input mb-3"
+        />
+
+        <button type="submit" class="btn btn-register w-100">Registrarse</button>
+
+        <div *ngIf="mostrarError" class="text-danger mt-2 text-center">
+            Por favor, completá todos los campos correctamente.
+        </div>
+        </form>
+
+        <a href="/login" class="btn btn-log w-100 text-center mt-3">Ya Tengo Cuenta</a>
+    </div>
+</div>

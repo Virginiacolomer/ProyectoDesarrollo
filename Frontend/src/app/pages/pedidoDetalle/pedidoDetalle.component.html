@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Pedido</title>
+
+</head>
+<body class="body">
+    <div *ngIf="pedido" class="container">
+        <div class="header">
+            <a [routerLink]= "['/home']"> 
+                <img src='../../../assets/img/back-arrow.png' alt="Volver" class="home-btn"> 
+            </a>
+            <h1 class="title">Pedido N°{{ pedido.id }}</h1>
+        </div>
+
+        <div class="food-image-container">
+            <div class="food-image">
+                <img [src]="pedido.imagen" width="280" height="280" alt="Descripción de la imagen">
+            </div>
+            <div class="price">${{ pedido.precio }}</div>
+        </div>
+
+        <div class="details">
+            <div class="detail-card">
+                <div class="product-label">Producto:</div>
+                <div class="product-name">{{ pedido.nombre }}</div>
+            </div>
+
+            <div class="detail-card">
+                <div class="address-label">Dirección de entrega:</div>
+                <div class="address">{{ pedido.direccion }}</div>
+            </div>
+
+            <div class="detail-card">
+                <div class="status-label">Estado:</div>
+                <div class="status">
+                    <span class="status-indicator"></span>
+                    {{ pedido.estado }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            // Para Angular, usarías: this.location.back() o this.router.navigate(['/previous-route'])
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                goHome();
+            }
+        }
+
+        function goHome() {
+            // Para Angular, usarías: this.router.navigate(['/home']) o this.router.navigate(['/'])
+            window.location.href = '/';
+        }
+
+        // Simulación de actualización de estado en tiempo real
+        function updateOrderStatus() {
+            const statuses = [
+                { text: 'Pendiente de entrega', color: '#4CAF50' },
+                { text: 'En preparación', color: '#FF9800' },
+                { text: 'En camino', color: '#2196F3' },
+                { text: 'Entregado', color: '#4CAF50' }
+            ];
+            
+            let currentIndex = 0;
+            const statusElement = document.querySelector('.status');
+            
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % statuses.length;
+                const status = statuses[currentIndex];
+                statusElement.innerHTML = `
+                    <span class="status-indicator" style="background: ${status.color}"></span>
+                    ${status.text}
+                `;
+                statusElement.style.color = status.color;
+            }, 5000);
+        }
+
+        // Inicializar la simulación de estado
+        setTimeout(updateOrderStatus, 3000);
+    </script>
+</body>
+</html>

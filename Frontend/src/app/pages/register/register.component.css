@@ -1,0 +1,52 @@
+.register-container {
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding-top: 30px;
+    }
+
+.register-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.burger-img {
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.form-box {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-input {
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.custom-input::placeholder {
+    color: #ccc;
+}
+
+.btn-register {
+    background-color: #f4511e;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.btn-register:hover {
+    background-color: #e64a19;
+}

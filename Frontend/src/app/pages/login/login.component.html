@@ -1,0 +1,33 @@
+<div class="login-container">
+  <div class="login-content">
+    <img src="assets/img/hamburguesa.png" alt="Fondo Hamburguesa" class="burger-img" />
+
+    <form class="form-box" (ngSubmit)="iniciarSesion()">
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        placeholder="Email"
+        [class.input-error]="mostrarError && (!email || !email.trim())"
+        class="form-control custom-input mb-3"
+      />
+
+      <input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Contraseña"
+        [class.input-error]="mostrarError && (!password || !password.trim())"
+        class="form-control custom-input mb-3"
+      />
+
+      <button type="submit" class="btn btn-login w-100">Iniciar Sesión</button>
+
+      <div *ngIf="mostrarError" class="text-danger mt-2 text-center">
+        Por favor, completá todos los campos.
+      </div>
+    </form>
+
+    <a href="/register" class="btn btn-log w-100 text-center mt-3">No Tengo Cuenta Aún</a>
+  </div>
+</div>
