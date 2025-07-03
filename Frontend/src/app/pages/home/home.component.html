@@ -6,6 +6,8 @@
   </div>
 
   <div class="home-content">
+    <!--Listados de pedidos-->
+    <!--*ngFor itera sobre toda la lista de pedidos-->
     <div class="pedido-card" *ngFor="let pedido of pedidos">
       <img [src]="pedido.imagen" class="pedido-img" alt="comida" />
       <div class="pedido-info">
@@ -16,15 +18,12 @@
           <a [routerLink]="['/pedido', pedido.id]">
             <button class="btn-ver">VER</button>
           </a>
-          <button class="btn-eliminar">Eliminar</button>
+          <button class="btn-eliminar" (click)="eliminarPedido(pedido.id)">Eliminar</button>
         </div> 
       </div>
     </div>
     
-<button [routerLink]="['/pedido-nuevo']" class="btn-agregar">Agregar Pedido</button>
-
-
-  <div class="paginacion">
+<div class="paginacion">
     <span class="pagina">1</span>
     <span class="pagina">2</span>
     <span class="pagina">3</span>
