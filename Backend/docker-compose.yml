@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres
+    container_name: postgres-db3
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mipassword
+      POSTGRES_DB: ordenes_pagos
+    ports:
+      - "5450:5432"
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d
+
+
+volumes:
+  pgdata:
